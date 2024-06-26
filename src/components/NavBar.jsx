@@ -60,7 +60,7 @@ function NavBar(props) {
                     ? props.onClickDelete()
                     : 0;
                 }}
-                to={'../'}
+                // to={'../'}
               >
                 {props.endDelete === 'Delete Account' ? (
                   <span className="text-red-900">{props.endDelete}</span>

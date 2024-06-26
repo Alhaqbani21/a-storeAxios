@@ -12,6 +12,7 @@ function Profile() {
   const [errorAlert, seterrorAlert] = useState(false);
   const [editAlert, seteditAlert] = useState(false);
   const [deleteAlert, setdeleteAlert] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const navigate = useNavigate();
 
   const [data, setdata] = useState([]);
@@ -62,7 +63,11 @@ function Profile() {
       .delete(url1)
       .then(() => {
         localStorage.removeItem('userId');
-        navigate('../');
+        setdeleteAlert(true);
+        setTimeout(() => {
+          setdeleteAlert(false);
+          navigate('../');
+        }, 2000);
       })
       .catch((error) => {
         alert('Failed to delete account: ' + error.message);
@@ -76,9 +81,39 @@ function Profile() {
         endTitleLink="../"
         endDelete={'Delete Account'}
         onClickDelete={() => {
-          handleDeleteAccount();
+          setShowDeleteModal(true); // Show the delete modal
+          // handleDeleteAccount();
         }}
       />
+      {/* Open the modal using document.getElementById('ID').showModal() method */}
+
+      <dialog
+        id="my_modal_5"
+        className="modal modal-bottom sm:modal-middle"
+        open={showDeleteModal}
+      >
+        <div className="modal-box">
+          <h3 className="font-bold text-2xl text-red-400">Danger Area!</h3>
+          <span className="py-4 text-xl">Do you want to delete?</span>
+          <span className="text-primary text-xl"> {data.userName}</span>
+          <div className="modal-action">
+            <div className="flex gap-5">
+              <button className="btn" onClick={() => setShowDeleteModal(false)}>
+                No
+              </button>
+              <button
+                onClick={() => {
+                  setShowDeleteModal(false);
+                  handleDeleteAccount();
+                }}
+                className="btn btn-primary"
+              >
+                Yes
+              </button>
+            </div>
+          </div>
+        </div>
+      </dialog>
       {editAlert && (
         <div className="alert alert-success fixed z-50 w-60 top-20 right-5">
           <span>Avatar has been updated</span>
