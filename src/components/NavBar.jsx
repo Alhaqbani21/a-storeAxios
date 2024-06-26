@@ -31,40 +31,44 @@ function NavBar(props) {
           menuOpen ? 'max-md:block' : 'max-md:hidden'
         }`}
       >
-        <ul className="menu menu-horizontal px-1 text-xl max-md:flex max-md:flex-col max-md:items-start">
+        <ul className="menu menu-horizontal px-1 text-xl max-md:flex max-md:flex-col max-md:items-start gap-5">
           <li className="max-md:w-full max-md:mb-2">
             {props.rightTitle && (
               <Link to={props.rightTitleLink}>{props.rightTitle}</Link>
             )}
           </li>
-          <li className="max-md:w-full max-md:flex-col flex flex-row gap-5">
-            <Link
-              onClick={() => {
-                props.endTitle === 'Logout' ? localStorage.clear() : 0;
-              }}
-              to={props.endTitleLink}
-            >
-              {props.endTitle === 'Logout' ? (
-                <span className="text-red-500">{props.endTitle}</span>
-              ) : (
-                props.endTitle
-              )}
-            </Link>
-            <Link
-              className=""
-              onClick={() => {
-                props.endDelete === 'Delete Account'
-                  ? props.onClickDelete()
-                  : 0;
-              }}
-              to={'../'}
-            >
-              {props.endDelete === 'Delete Account' ? (
-                <span className="text-red-900">{props.endDelete}</span>
-              ) : (
-                props.endDelete
-              )}
-            </Link>
+          <li className="max-md:w-full max-md:flex-col flex flex-row ">
+            {props.endTitle && (
+              <Link
+                onClick={() => {
+                  props.endTitle === 'Logout' ? localStorage.clear() : 0;
+                }}
+                to={props.endTitleLink}
+              >
+                {props.endTitle === 'Logout' ? (
+                  <span className="text-red-500">{props.endTitle}</span>
+                ) : (
+                  props.endTitle
+                )}
+              </Link>
+            )}
+            {props.endDelete && (
+              <Link
+                className=""
+                onClick={() => {
+                  props.endDelete === 'Delete Account'
+                    ? props.onClickDelete()
+                    : 0;
+                }}
+                to={'../'}
+              >
+                {props.endDelete === 'Delete Account' ? (
+                  <span className="text-red-900">{props.endDelete}</span>
+                ) : (
+                  props.endDelete
+                )}
+              </Link>
+            )}
           </li>
         </ul>
       </div>

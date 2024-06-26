@@ -75,9 +75,9 @@ function LoginPage() {
         endTitle="SignUp"
         endTitleLink="../SignUp"
       />
-      <section className="h-screen flex justify-center max-md:mt-5">
+      <section className="h-screen flex justify-center max-md:mt-5 ">
         <div className="min-w-full  min-h-full">
-          <div className="gap-2 flex h-full items-center justify-center max-md:flex-col">
+          <div className="gap-2 flex   h-full items-center justify-center max-md:flex-col ">
             <div className="flex justify-center shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12  max-md:justify-center">
               {/* <!-- Left column container --> */}
 

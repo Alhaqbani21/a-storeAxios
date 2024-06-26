@@ -91,10 +91,11 @@ function Profile() {
       )}
 
       <div className="hero bg-base-200 min-h-screen ">
-        <div className="hero-content text-center max-md:flex-col-reverse gap-16 shadow-2xl p-10 rounded-lg">
+        <div className="hero-content max-md:p-0 max-md:py-10 text-center max-md:flex-col-reverse gap-16 shadow-2xl p-10 rounded-lg">
           <div className="avatar flex-col justify-center items-center gap-5 max-md:max-w-screen ">
             <div className="w-[360px] h-[360px] max-md:w-[300px] max-md:h-[300px] max-md:max-w-full max-md:max-h-full">
               {' '}
+              <div>Profile Image</div>{' '}
               <img
                 className="w-full h-full object-cover rounded"
                 src={imageUrl}
@@ -132,6 +133,8 @@ function Profile() {
             <h1 className="text-5xl font-bold text-center mb-8">
               Your Information
             </h1>
+            <div className="divider divider-primary mx-4"></div>
+
             <div className="text-3xl max-md:text-2xl font-bold tracking-wider flex flex-col ">
               <div>
                 {' '}
