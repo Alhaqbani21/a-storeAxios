@@ -69,6 +69,14 @@ function NavBar(props) {
                 )}
               </Link>
             )}
+            {props.img && (
+              <div className="avatar">
+                <div className="w-8 rounded-full">
+                  <img src={props.img} />
+                </div>
+                {props.name}
+              </div>
+            )}
           </li>
         </ul>
       </div>

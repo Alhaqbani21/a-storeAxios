@@ -77,6 +77,8 @@ function Profile() {
   return (
     <>
       <NavBar
+        name={data.userName}
+        img={imageUrl}
         endTitle="Logout"
         endTitleLink="../"
         endDelete={'Delete Account'}
